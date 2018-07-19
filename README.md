@@ -1,5 +1,5 @@
 # arduino_light_alarmclock_any_smartphone
-ESP based Light Alarmclock, triggerable by (probably) any playlist-capable smartphone alarm clock
+ESP based Light Alarmclock, triggerable by (probably) any playlist-capable smartphone (i.e. Android/Iphone/Windows) alarm clock
 
 To better wake up at odd times, especially in dark winter or with blinds down, I wanted an alarm clock which can be controlled by any smartphone alarm app which supports playlists.
 
@@ -10,8 +10,11 @@ Afterwards any arduino relais board, connected via rainbowcolored dupont wires, 
 
 ## Caution: Mains Voltage (240V/120V) can kill you! Only use 12V led-stripes if you're not familiar with that.
 
-In any case, i'd suggest housing it in a IP54-rated mains electric container and changing the obviously bad wifi credentials in the code before flashing.
+In any case, i'd suggest housing it in a plastic IP54-rated mains electric container and changing the obviously bad wifi credentials in the code before flashing. Metal cans woud need to have at least one plastic lid so some RF can come out (2.4 / 5GHz Wifi is RF and can be trapped in a metal can otherwise, i.e. faraday cage, if fully enclosed.
 
 At last, define a static IP on your router for this device and use your Smartphone Alarmclock App (e.g. AlarmDroid) and enter http://deviceIP/x.pls, where x stands for relays 1-4 like stated in the code. Now make multiple mute alarms which end automatically to trigger the different relays and their linked lamps.
 
 (Alternatively, call http://deviceIP/x.pls in your browser to toggle them)
+
+
+If you're looking for something that runs on its own (i.e. internal clock, configured via web-interface), this seems promising: https://www.instructables.com/id/Wake-up-Ceiling-Light/#discuss
