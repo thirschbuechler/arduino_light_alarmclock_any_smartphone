@@ -10,13 +10,14 @@ Afterwards any arduino relais board, connected via rainbowcolored dupont wires, 
 
 ## Caution: Mains Voltage (240V/120V) can kill you! Only use 12V led-stripes if you're not familiar with that.
 
-In any case, i'd suggest housing it in a plastic IP54-rated mains electric container and changing the obviously bad wifi credentials in the code before flashing. Metal cans woud need to have at least one plastic lid so some RF can come out (2.4 / 5GHz Wifi is RF and can be trapped in a metal can otherwise, i.e. faraday cage, if fully enclosed.
+In any case, i'd suggest housing it in a plastic IP54-rated mains electric container and changing the obviously bad wifi credentials in the code before flashing. Metal cans woud need to have at least one plastic lid (2.4 / 5GHz Wifi is RF and can be trapped in a metal can otherwise, i.e. faraday cage, if fully enclosed).
 
 At last, define a static IP on your router for this device and use your Smartphone Alarmclock App (e.g. AlarmDroid) and enter http://deviceIP/x.pls, where x stands for relays 1-4 like stated in the code. Now make multiple mute alarms which end automatically to trigger the different relays and their linked lamps.
 
 (Alternatively, call http://deviceIP/x.pls in your browser to toggle them)
 
 ## Smartphone Alarmclock Setup
+As said before, any internet-radio playlist-supported app should do, here are some screenshots of my setup and one alarm (rel2) in detail.
 
 ![overview](https://user-images.githubusercontent.com/8376996/43305052-93323978-9176-11e8-8cd3-891a2171ea0a.png)
 
@@ -31,4 +32,4 @@ The larger case always wins. Always.
 ![nodemcudevkit_v1-0_io_edited](https://user-images.githubusercontent.com/8376996/43304379-2fe046a0-9174-11e8-8d53-1decdfd07fac.png)
 
 
-If you're looking for something that runs on its own (i.e. internal clock, configured via web-interface), this seems promising: https://www.instructables.com/id/Wake-up-Ceiling-Light/#discuss
+If you're looking for something that runs on its own (i.e. internal clock, configured via web-interface), this seems promising: https://www.instructables.com/id/Wake-up-Ceiling-Light/
