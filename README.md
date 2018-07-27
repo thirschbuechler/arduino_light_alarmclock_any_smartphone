@@ -17,4 +17,11 @@ At last, define a static IP on your router for this device and use your Smartpho
 (Alternatively, call http://deviceIP/x.pls in your browser to toggle them)
 
 
+![camerazoom-20180228214913047](https://user-images.githubusercontent.com/8376996/43304308-e1985e9c-9173-11e8-9afc-8e8a4389d6fb.jpg)
+
+![camerazoom-20180311184126773](https://user-images.githubusercontent.com/8376996/43304311-e3d520aa-9173-11e8-8610-78e8fb049efd.jpg)
+The larger case always wins. Always.
+![nodemcudevkit_v1-0_io_edited](https://user-images.githubusercontent.com/8376996/43304379-2fe046a0-9174-11e8-8d53-1decdfd07fac.png)
+
+
 If you're looking for something that runs on its own (i.e. internal clock, configured via web-interface), this seems promising: https://www.instructables.com/id/Wake-up-Ceiling-Light/#discuss
