@@ -16,6 +16,13 @@ At last, define a static IP on your router for this device and use your Smartpho
 
 (Alternatively, call http://deviceIP/x.pls in your browser to toggle them)
 
+## Smartphone Alarmclock Setup
+
+![overview](https://user-images.githubusercontent.com/8376996/43305052-93323978-9176-11e8-8cd3-891a2171ea0a.png)
+
+![one_alarm_ed](https://user-images.githubusercontent.com/8376996/43305051-93151da2-9176-11e8-84dd-5d43aa3b7585.png)
+
+## Hardware Setup
 
 ![camerazoom-20180228214913047](https://user-images.githubusercontent.com/8376996/43304308-e1985e9c-9173-11e8-9afc-8e8a4389d6fb.jpg)
 
