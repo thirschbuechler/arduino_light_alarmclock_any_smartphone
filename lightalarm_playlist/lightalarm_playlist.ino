@@ -1,7 +1,11 @@
-#include <ESP8266WiFi.h>
-#include <WiFiClient.h>
-#include <ESP8266WebServer.h>
-#include <ESP8266mDNS.h>
+#include <ESP8266WiFi.h> //esp8266 library
+
+#include <WiFiClient.h> //http requests to actual playlist location
+
+#include <ESP8266WebServer.h> // fake playlist location serving (to trigger relais on call)
+#include <ESP8266mDNS.h>  // support module for server
+
+#include <WiFiManager.h>//no hard-coded wifi credentials
 
 // ---- define D_x - GPIO_y mappings ----
 //D0 is already:
@@ -21,9 +25,6 @@
 #define relay4 D6
 
 
-const char* ssid = "mywifi";
-const char* password = "mypassword";
-
 String String1 = String("[playlist]\n") +
 "umberofentries=2\n"+
 "File1=http://bbcwssc.ic.llnwd.net/stream/bbcwssc_mp1_ws-eieuk\n" +
@@ -33,9 +34,32 @@ String String1 = String("[playlist]\n") +
 "Title2=BBC World Service Online\n" +
 "Length2=-1";
 
-ESP8266WebServer server(80);
 
 const int led = LED_BUILTIN;
+
+ESP8266WebServer server(80); // global server object for playlist "serving"
+
+
+// https://github.com/tzapu/WiFiManager
+void connectWifi(){
+  Serial.print("Connecting using wifiManager");
+  WiFiManager wifiManager;
+  wifiManager.setConfigPortalTimeout(360); // reboot after 360s if no new wifi entered
+  wifiManager.autoConnect("AutoConnectAP"); // opens if previous conf. wifi is unreachable
+
+  // continues only if connected
+  Serial.println("Connected");
+}//end connect
+
+// setup serial and wifi
+void setup() {
+  Serial.begin(115200);
+  Serial.println("serial set-up");
+  connectWifi();
+
+  mysetup();
+}
+
 
 void handleRoot() {
   digitalWrite(led, 1);
@@ -60,7 +84,9 @@ void handleNotFound(){
   digitalWrite(led, 0);
 }
 
-void setup(void){
+void mysetup(void){
+
+  Serial.println("setting up pins..");
   pinMode(led, OUTPUT);
   digitalWrite(led, 0);
 
@@ -69,18 +95,13 @@ void setup(void){
   pinMode(relay3, OUTPUT);
   pinMode(relay3, OUTPUT);
   
-  Serial.begin(115200);
-  WiFi.begin(ssid, password);
-  Serial.println("");
-
+  Serial.println("waiting for wifi to connect (wifi setup complete)");
+  
   // Wait for connection
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.print(".");
   }
-  Serial.println("");
-  Serial.print("Connected to ");
-  Serial.println(ssid);
   Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
 
@@ -90,6 +111,8 @@ void setup(void){
 
   server.on("/", handleRoot);
 
+
+//  Setup the hooks for playlist listening and relais clicking.. 
 //---- turnons ----
 
   server.on("/1.pls", [](){
