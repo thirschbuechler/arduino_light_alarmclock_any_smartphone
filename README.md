@@ -8,9 +8,11 @@ The basic idea is to make a reroute to a playlist (i.e. BBC radio) and mute it, 
 For this I used a ESP-based Geekcreit Nodemcu MCU, but programmed it with the Arduino Interface.
 Afterwards any arduino relais board, connected via rainbowcolored dupont wires, can trigger lamps etc.
 
+To connect it to your wifi, it opens an Access Point named ESP to connect to with your phone (loses internet connection temporarily) and reroutes you to a "login page" to input your wifi credentials.
+
 ## Caution: Mains Voltage (240V/120V) can kill you! Only use 12V led-stripes if you're not familiar with that.
 
-In any case, i'd suggest housing it in a plastic IP54-rated mains electric container and changing the obviously bad wifi credentials in the code before flashing. Metal cans woud need to have at least one plastic lid (2.4 / 5GHz Wifi is RF and can be trapped in a metal can otherwise, i.e. faraday cage, if fully enclosed).
+In any case, i'd suggest housing it in a plastic IP54-rated mains electric container. Metal cans woud need to have at least one plastic lid (2.4 / 5GHz Wifi is RF and can be trapped in a metal can otherwise, i.e. faraday cage, if fully enclosed).
 
 At last, define a static IP on your router for this device and use your Smartphone Alarmclock App (e.g. AlarmDroid) and enter http://deviceIP/x.pls, where x stands for relays 1-4 like stated in the code. Now make multiple mute alarms which end automatically to trigger the different relays and their linked lamps.
 
